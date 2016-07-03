@@ -1,0 +1,69 @@
+<html>
+
+<body>
+
+<div>
+    <ul>
+        <li>
+            <a class="handler" data-event="click" data-trigger="trigger1">
+                handler 1
+            </a>
+        </li>
+        <li>
+            <a class="handler" data-handler='[
+                {
+                    "event": "click",
+                    "trigger": "trigger2"
+                },
+                {
+                    "event": "mouseover",
+                    "trigger": "trigger3"
+                }
+            ]'>
+                handler 2
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="../handleit/handleit.min.js"></script>
+<script>
+$(function() {
+    $('body').on('trigger1', function(event, handler_event) {
+        console.log('trigger1 - event', event);
+        console.log('trigger1 - handler_event', handler_event);
+        console.log('trigger1 - handler_event.type', handler_event.type);
+        console.log('trigger1 - handler_event.which', handler_event.which);
+        console.log('trigger1 - handler_event.target', handler_event.target);
+        console.log('trigger1 - handler_event.pageX', handler_event.pageX);
+        console.log('trigger1 - handler_event.pageY', handler_event.pageY);
+        console.log('trigger1 - handler_event.trigger', handler_event.trigger);
+    });
+
+    $('.handler').on('trigger2', function(event, handler_event) {
+        console.log('trigger2 - event', event);
+        console.log('trigger2 - handler_event', handler_event);
+        console.log('trigger2 - handler_event.type', handler_event.type);
+        console.log('trigger2 - handler_event.which', handler_event.which);
+        console.log('trigger2 - handler_event.target', handler_event.target);
+        console.log('trigger2 - handler_event.pageX', handler_event.pageX);
+        console.log('trigger2 - handler_event.pageY', handler_event.pageY);
+        console.log('trigger2 - handler_event.trigger', handler_event.trigger);
+    });
+
+    $('.handler').on('trigger3', function(event, handler_event) {
+        console.log('trigger3 - event', event);
+        console.log('trigger3 - handler_event', handler_event);
+        console.log('trigger3 - handler_event.type', handler_event.type);
+        console.log('trigger3 - handler_event.which', handler_event.which);
+        console.log('trigger3 - handler_event.target', handler_event.target);
+        console.log('trigger3 - handler_event.pageX', handler_event.pageX);
+        console.log('trigger3 - handler_event.pageY', handler_event.pageY);
+        console.log('trigger3 - handler_event.trigger', handler_event.trigger);
+    });
+});
+</script>
+
+</body>
+</html>
