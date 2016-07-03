@@ -82,6 +82,19 @@
 &lt;/a&gt;</code></pre>
     </div>
 
+    <p class="handler" data-event="click" data-trigger="trigger4" data-target="a">
+        <a href="#heythere3">
+            Handler 3 - Handler on parent - Target links
+        </a>
+    </p>
+    <div class="pre">
+        <pre><code>&lt;p class="handler" data-event="click" data-trigger="trigger4" data-target="a"&gt;
+    &lt;a href="#heythere3"&gt;
+        Handler 3 - Handler on parent - Target links
+    &lt;/a&gt;
+&lt;/p&gt;</code></pre>
+    </div>
+
     <h2>JS</h2>
     <div class="pre">
         <pre><code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">&lt;/script&gt;
@@ -101,6 +114,11 @@ $(function() {
     $('.handler').on('trigger3', function(event, handler_event) {
         console.log('trigger3 - event', event);
         console.log('trigger3 - handler_event', handler_event);
+    });
+
+    $('.handler').on('trigger4', function(event, handler_event) {
+        console.log('trigger4 - event', event);
+        console.log('trigger4 - handler_event', handler_event);
     });
 });
 &lt;/script&gt;</code></pre>
@@ -124,6 +142,11 @@ $(function() {
     $('.handler').on('trigger3', function(event, handler_event) {
         console.log('trigger3 - event', event);
         console.log('trigger3 - handler_event', handler_event);
+    });
+
+    $('.handler').on('trigger4', function(event, handler_event) {
+        console.log('trigger4 - event', event);
+        console.log('trigger4 - handler_event', handler_event);
     });
 });
 </script>
