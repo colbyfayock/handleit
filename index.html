@@ -1,0 +1,132 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <style>
+    .handleit {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        max-width: 800px;
+        padding: 0 2em;
+        margin: 0 auto;
+    }
+    pre,
+    code {
+        margin: 0;
+    }
+    pre {
+        overflow: scroll;
+        padding: 1em;
+    }
+    .pre {
+        background-color: #eee;
+        margin: 1em 0;
+    }
+    li {
+        margin-bottom: 2em;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<div class="handleit">
+
+    <h1>Handle It</h1>
+    <p>
+        Trigger the link events and check your console for some sweet activity
+    </p>
+
+    <h2>HTML</h2>
+    <p>
+        <a class="handler" href="#heythere1" data-event="click" data-trigger="trigger1">
+            Handler 1 - Click
+        </a>
+    </p>
+    <div class="pre">
+        <pre><code>&lt;a class="handler" href="#heythere1" data-event="click" data-trigger="trigger1"&gt;
+    Handler 1 - Click
+&lt;/a&gt;</code></pre>
+    </div>
+
+    <p>
+        <a class="handler" href="#heythere2" data-handler='[
+            {
+                "event": "click",
+                "trigger": "trigger2",
+                "return": "false"
+            },
+            {
+                "event": "mouseover",
+                "trigger": "trigger3"
+            }
+        ]' data-return="false">
+            Handler 2 - Click + Mouseover - Return false on click
+        </a>
+    </p>
+    <div class="pre">
+        <pre><code>&lt;a class="handler" href="#heythere2" data-handler='[
+    {
+        "event": "click",
+        "trigger": "trigger2",
+        "return": "false"
+    },
+    {
+        "event": "mouseover",
+        "trigger": "trigger3"
+    }
+]' data-return="false"&gt;
+    Handler 2 - Click + Mouseover - Return false on click
+&lt;/a&gt;</code></pre>
+    </div>
+
+    <h2>JS</h2>
+    <div class="pre">
+        <pre><code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">&lt;/script&gt;
+&lt;script src="../handleit/handleit.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function() {
+    $('body').on('trigger1', function(event, handler_event) {
+        console.log('trigger1 - event', event);
+        console.log('trigger1 - handler_event', handler_event);
+    });
+
+    $('.handler').on('trigger2', function(event, handler_event) {
+        console.log('trigger2 - event', event);
+        console.log('trigger2 - handler_event', handler_event);
+    });
+
+    $('.handler').on('trigger3', function(event, handler_event) {
+        console.log('trigger3 - event', event);
+        console.log('trigger3 - handler_event', handler_event);
+    });
+});
+&lt;/script&gt;</code></pre>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="handleit/handleit.min.js"></script>
+<script>
+$(function() {
+    $('body').on('trigger1', function(event, handler_event) {
+        console.log('trigger1 - event', event);
+        console.log('trigger1 - handler_event', handler_event);
+    });
+
+    $('.handler').on('trigger2', function(event, handler_event) {
+        console.log('trigger2 - event', event);
+        console.log('trigger2 - handler_event', handler_event);
+    });
+
+    $('.handler').on('trigger3', function(event, handler_event) {
+        console.log('trigger3 - event', event);
+        console.log('trigger3 - handler_event', handler_event);
+    });
+});
+</script>
+
+</body>
+</html>
