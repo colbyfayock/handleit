@@ -13,6 +13,7 @@ $(function() {
     if ( !$handleit[0] ) return;
 
     _this.handle_trigger = function(handler) {
+
         var $that = handler.$that,
             target = handler.target && handler.target !== '' ? handler.target : false;
 
@@ -21,17 +22,12 @@ $(function() {
             event.trigger = handler.trigger;
             $that.trigger(event.trigger, [event]);
 
-            if ( handler.return === 'preventDefault' ) {
-                event.preventDefault();
-            }
-
-            if ( handler.return === 'stopPropagation' ) {
-                event.stopPropagation();
-            }
-
+            if ( handler.return === 'preventDefault' ) event.preventDefault();
+            if ( handler.return === 'stopPropagation' ) event.stopPropagation();
             if ( handler.return === 'false' ) return false;
 
         });
+
     }
 
     _this.handle_event = function(element) {
@@ -71,9 +67,11 @@ $(function() {
     };
 
     _this.go = function($handler) {
+        
         for ( var i = 0, handler_len = $handler.length; i < handler_len; i++ ) {
             _this.handle_event($handler[i])
         }
+
     }
 
     _this.go($handleit);
