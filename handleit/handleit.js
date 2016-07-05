@@ -7,12 +7,12 @@
 
 $(function() {
 
-    var $handler = $('.handler'),
-        handle_trigger,
-        handle_event;
+    var $handleit = $('.handleit'),
+        _this = this;
 
-    handle_trigger = function(handler) {
+    if ( !$handleit[0] ) return;
 
+    _this.handle_trigger = function(handler) {
         var $that = handler.$that,
             target = handler.target && handler.target !== '' ? handler.target : false;
 
@@ -34,7 +34,7 @@ $(function() {
         });
     }
 
-    handle_event = function(element) {
+    _this.handle_event = function(element) {
 
         var $that = $(element),
             event = $that.attr('data-event'),
@@ -44,7 +44,7 @@ $(function() {
             event_return = $that.attr('data-return'),
             handler_events = [];
 
-        if ( typeof handle_trigger !== 'function' ) return false;
+        if ( typeof _this.handle_trigger !== 'function' ) return false;
 
         if ( event && event !== '' ) {
             handler_events.push({
@@ -59,7 +59,7 @@ $(function() {
         }
 
         for ( var i = 0, handler_events_len = handler_events.length; i < handler_events_len; i++ ) {
-            handle_trigger({
+            _this.handle_trigger({
                 $that: $that,
                 event: handler_events[i].event,
                 trigger: handler_events[i].trigger,
@@ -70,8 +70,12 @@ $(function() {
 
     };
 
-    for ( var i = 0, handler_len = $handler.length; i < handler_len; i++ ) {
-        handle_event($handler[i])
+    _this.go = function($handler) {
+        for ( var i = 0, handler_len = $handler.length; i < handler_len; i++ ) {
+            _this.handle_event($handler[i])
+        }
     }
+
+    _this.go($handleit);
 
 });

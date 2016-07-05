@@ -4,7 +4,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <style>
-    .handleit {
+    #handleit {
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         max-width: 800px;
@@ -32,7 +32,7 @@
 
 <body>
 
-<div class="handleit">
+<div id="handleit">
 
     <h1>Handle It</h1>
     <p>
@@ -41,18 +41,18 @@
 
     <h2>HTML</h2>
     <p>
-        <a class="handler" href="#heythere1" data-event="click" data-trigger="trigger1">
+        <a class="handleit" href="#heythere1" data-event="click" data-trigger="trigger1">
             Handler 1 - Click
         </a>
     </p>
     <div class="pre">
-        <pre><code>&lt;a class="handler" href="#heythere1" data-event="click" data-trigger="trigger1"&gt;
+        <pre><code>&lt;a class="handleit" href="#heythere1" data-event="click" data-trigger="trigger1"&gt;
     Handler 1 - Click
 &lt;/a&gt;</code></pre>
     </div>
 
     <p>
-        <a class="handler" href="#heythere2" data-handler='[
+        <a class="handleit" href="#heythere2" data-handler='[
             {
                 "event": "click",
                 "trigger": "trigger2",
@@ -67,7 +67,7 @@
         </a>
     </p>
     <div class="pre">
-        <pre><code>&lt;a class="handler" href="#heythere2" data-handler='[
+        <pre><code>&lt;a class="handleit" href="#heythere2" data-handler='[
     {
         "event": "click",
         "trigger": "trigger2",
@@ -82,13 +82,13 @@
 &lt;/a&gt;</code></pre>
     </div>
 
-    <p class="handler" data-event="click" data-trigger="trigger4" data-target="a">
+    <p class="handleit" data-event="click" data-trigger="trigger4" data-target="a">
         <a href="#heythere3">
             Handler 3 - Handler on parent - Target links
         </a>
     </p>
     <div class="pre">
-        <pre><code>&lt;p class="handler" data-event="click" data-trigger="trigger4" data-target="a"&gt;
+        <pre><code>&lt;p class="handleit" data-event="click" data-trigger="trigger4" data-target="a"&gt;
     &lt;a href="#heythere3"&gt;
         Handler 3 - Handler on parent - Target links
     &lt;/a&gt;
@@ -106,17 +106,17 @@ $(function() {
         console.log('trigger1 - handler_event', handler_event);
     });
 
-    $('.handler').on('trigger2', function(event, handler_event) {
+    $('.handleit').on('trigger2', function(event, handler_event) {
         console.log('trigger2 - event', event);
         console.log('trigger2 - handler_event', handler_event);
     });
 
-    $('.handler').on('trigger3', function(event, handler_event) {
+    $('.handleit').on('trigger3', function(event, handler_event) {
         console.log('trigger3 - event', event);
         console.log('trigger3 - handler_event', handler_event);
     });
 
-    $('.handler').on('trigger4', function(event, handler_event) {
+    $('.handleit').on('trigger4', function(event, handler_event) {
         console.log('trigger4 - event', event);
         console.log('trigger4 - handler_event', handler_event);
     });
@@ -134,17 +134,17 @@ $(function() {
         console.log('trigger1 - handler_event', handler_event);
     });
 
-    $('.handler').on('trigger2', function(event, handler_event) {
+    $('.handleit').on('trigger2', function(event, handler_event) {
         console.log('trigger2 - event', event);
         console.log('trigger2 - handler_event', handler_event);
     });
 
-    $('.handler').on('trigger3', function(event, handler_event) {
+    $('.handleit').on('trigger3', function(event, handler_event) {
         console.log('trigger3 - event', event);
         console.log('trigger3 - handler_event', handler_event);
     });
 
-    $('.handler').on('trigger4', function(event, handler_event) {
+    $('.handleit').on('trigger4', function(event, handler_event) {
         console.log('trigger4 - event', event);
         console.log('trigger4 - handler_event', handler_event);
     });
